@@ -32,32 +32,36 @@
 
 // Jeśli pojawi się problem z obliczeniami, sprawdź, czy na pewno operujesz na liczbach, a nie np. na stringach. ;)
 
-const price = document.querySelector('#price')
-const people = document.querySelector('#people')
-const tip = document.querySelector('#tip')
-const countBtn = document.querySelector('.count')
-const error = document.querySelector('.error')
-const costInfo = document.querySelector('.cost-info')
-const cost = document.querySelector('.cost')
+
+
+const price = document.querySelector('#price');
+const people = document.querySelector('#people');
+const tip = document.querySelector('#tip');
+const countBtn = document.querySelector('.count');
+const error = document.querySelector('.error');
+const costInfo = document.querySelector('.cost-info');
+const cost = document.querySelector('.cost');
 
 
 const showBill = () => {
-
-    if (price.value = '' || people.value == '' || tip.value == 0) {
+    if (price.value == '' || people.value == '' || tip.value == 0) {
         error.textContent = 'Complete all fields!';
+        costInfo.style.display = 'none';
     } else {
         error.textContent = '';
-        countBill()
+        countBill();
     }
 }
 
 const countBill = () => {
-    const newPrice = price.value;
-    const newPeople = people.value;
-    const newTip = tip.value;
+    const newPrice = parseFloat(price.value);
+    const newPeople = parseInt(people.value);
+    const newTip = parseFloat(tip.value);
 
-    const sum = (newPrice + newPrice * newTip) / newPeople
+    const sum = (newPrice + newPrice * newTip) / newPeople;
     costInfo.style.display = 'block';
+
+    cost.textContent = sum.toFixed(2)
 }
 
 countBtn.addEventListener('click', showBill)
