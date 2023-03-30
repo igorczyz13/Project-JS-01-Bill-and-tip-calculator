@@ -35,9 +35,12 @@
 const price = document.querySelector('#price')
 const people = document.querySelector('#people')
 const tip = document.querySelector('#tip')
-const button = document.querySelector('.count')
+const countBtn = document.querySelector('.count')
 const error = document.querySelector('.error')
-const p = document.querySelector('.cost-info')
-const span = document.querySelector('.cost')
+const costInfo = document.querySelector('.cost-info')
+const cost = document.querySelector('.cost')
 
 
+const showBill = () => {
+    
+}
