@@ -42,5 +42,22 @@ const cost = document.querySelector('.cost')
 
 
 const showBill = () => {
-    
+
+    if (price.value = '' || people.value == '' || tip.value == 0) {
+        error.textContent = 'Complete all fields!';
+    } else {
+        error.textContent = '';
+        countBill()
+    }
 }
+
+const countBill = () => {
+    const newPrice = price.value;
+    const newPeople = people.value;
+    const newTip = tip.value;
+
+    const sum = (newPrice + newPrice * newTip) / newPeople
+    costInfo.style.display = 'block';
+}
+
+countBtn.addEventListener('click', showBill)
